@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+isort = "*"
+wemake-python-styleguide = "==0.13.3"
+pyflakes = "==2.1.1"
+pycodestyle = "==2.5.0"
+flake8-django = "==0.0.4"
+pylint-django = "*"
+
+[packages]
+django = "*"
+psycopg2-binary = "*"
+uwsgi = "*"
+uwsgi-env = "*"
+django-cors-headers = "*"
+drf-yasg = "*"
+pydantic = "*"
+django-rest-auth = "*"
+
+[requires]
+python_version = "3.8"

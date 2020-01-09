@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+
+database_ready() {
+  python <<END
+import sys
+
+from django.db import connection, utils
+
+
+try:
+    connection.ensure_connection()
+except utils.OperationalError as e:
+    sys.stdout.write(str(e))
+    sys.exit(-1)
+
+sys.exit(0)
+END
+}
+
+until database_ready; do
+  echo >&2 "Database is unavailable - sleeping..."
+  sleep 2
+done
+
+echo >&2 "Database is up - continuing..."
+
+export PYTHONPATH=${PYTHONPATH}:${PROJECT_ROOT}
+
+python "${PROJECT_ROOT}"/manage.py collectstatic --noinput
+python "${PROJECT_ROOT}"/manage.py migrate --noinput
+/usr/local/bin/uwsgi --ini /app/wsgi/uwsgi.ini

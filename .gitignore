@@ -1,0 +1,33 @@
+# Windows image file caches
+.env.local
+
+etc/
+other/
+.coverage
+htmlcov/
+isort.log
+pylint.log
+pylint.txt
+
+.idea/
+.vscode/
+
+.cache/
+.pytest_cache
+__pycache__/
+
+result/
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Thumbnails
+._*
+
+.env
+
+src/static/
+media/
+*.log
+var
+src/var
+*.sqlite3

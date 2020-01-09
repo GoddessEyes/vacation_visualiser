@@ -1,0 +1,14 @@
+/docs
+/var
+/etc
+
+.*
+!.coveragerc
+!src/.isort.cfg
+!.pylintrc
+
+settings_local.py
+
+docker-compose.*
+README.md
+*.sqlite3

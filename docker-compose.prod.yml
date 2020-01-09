@@ -1,0 +1,42 @@
+version: '3'
+
+# Сборка прод-стека из исходников
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./compose/app/Dockerfile
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    volumes:
+      - ./var/static/:/app/var/static/
+      - ./var/media/:/app/var/media/
+    environment:
+      DJANGO_SETTINGS_MODULE: vacation_visualiser.settings.prod
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./compose/nginx/Dockerfile
+    depends_on:
+      - app
+    links:
+      - app
+    volumes:
+      - ./var/static/:/opt/app/static/:ro
+      - ./var/media/:/opt/app/media/:ro
+    ports:
+      - 80:80
+
+  postgres:
+    image: postgres:12
+    ports:
+      - 5432:5432
+    volumes:
+      - ./var/postgresql-data/:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: vacation_visualiser
+      POSTGRES_USER: vacation_visualiser
+      POSTGRES_PASSWORD: vacation_visualiser

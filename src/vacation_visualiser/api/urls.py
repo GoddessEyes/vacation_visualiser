@@ -1,8 +1,9 @@
+"""Роути для API приложения. Схема API."""
+
 from django.urls import include, path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-
 from vacation_visualiser.api.employee.auth_urls import urlpatterns
 
 

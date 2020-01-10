@@ -6,11 +6,7 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 isort = "*"
-wemake-python-styleguide = "==0.13.3"
-pyflakes = "==2.1.1"
-pycodestyle = "==2.5.0"
-flake8-django = "==0.0.4"
-pylint-django = "*"
+flake8 = "*"
 
 [packages]
 django = "*"

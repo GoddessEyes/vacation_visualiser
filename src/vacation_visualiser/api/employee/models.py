@@ -1,14 +1,17 @@
+"""Модели связанные с сущностью `Сотрудник`."""
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
 class Position(models.Model):
+    """`Должность` сотрудника."""
+
     name = models.CharField(
         'Должность',
-        max_length=50
+        max_length=50,
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.name}'
 
     class Meta:
@@ -17,6 +20,8 @@ class Position(models.Model):
 
 
 class Employee(AbstractUser):
+    """`Сотрудник`."""
+
     first_name = models.CharField(
         'Имя',
         max_length=30,
@@ -43,7 +48,6 @@ class Employee(AbstractUser):
         on_delete=models.DO_NOTHING,
         blank=True,
         null=True,
-
     )
 
     class Meta:

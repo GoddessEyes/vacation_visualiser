@@ -1,4 +1,6 @@
-from .base import *  # @UnusedWildImport
+"""Dev настройки приложения."""
+
+from .base import *
 
 
 DEBUG = True

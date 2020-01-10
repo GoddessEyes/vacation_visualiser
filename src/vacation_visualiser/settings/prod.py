@@ -1,4 +1,6 @@
-from .base import *  # @UnusedWildImport
+"""Prod настройки приложения."""
+
+from .base import *
 
 
 DEBUG = False
@@ -11,5 +13,5 @@ DATABASES = {
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'vacation_visualiser'),
         'HOST': os.getenv('POSTGRES_HOST', 'postgres'),
         'PORT': os.getenv('POSTGRES_PORT', '5432'),
-    }
+    },
 }

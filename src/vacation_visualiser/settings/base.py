@@ -1,7 +1,11 @@
+"""Основные настройки приложения."""
+
 import os
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__)),
+)
 SRC_DIR = os.path.join(BASE_DIR, '..')
 
 _ENV_VAR = 'VAR_PATH'
@@ -11,7 +15,7 @@ SECRET_KEY = '$h0ep7)x$p5s&^0q9j9%&5f7xm)p&ar5!w*lj3!s8aam#+2ax2'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ('*',)
 
 DJANGO_APPS = (
     'django.contrib.admin',
@@ -25,11 +29,12 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'drf_yasg',
     'rest_framework.authtoken',
-    'rest_auth'
+    'rest_auth',
 )
 
 LOCAL_APPS = (
     'vacation_visualiser.api.employee',
+    'vacation_visualiser.api.vacation',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -49,8 +54,7 @@ ROOT_URLCONF = 'vacation_visualiser.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates', ), ],  # noqa: С819
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,14 +72,14 @@ AUTH_USER_MODEL = 'employee.Employee'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 SWAGGER_SETTINGS = {
-   'SECURITY_DEFINITIONS': {
-      'Bearer': {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',
-            'in': 'header'
-      }
-   },
-    'DOC_EXPANSION': 'none'
+            'in': 'header',
+        },
+    },
+    'DOC_EXPANSION': 'none',
 }
 
 REST_FRAMEWORK = {
@@ -93,23 +97,31 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'vacation_visualiser.sqlite3'),
-    }
+    },
 }
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = (
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.NumericPasswordValidator'
+        ),
     },
-]
+)
 
 LANGUAGE_CODE = 'ru'
 

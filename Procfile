@@ -1,1 +1,1 @@
-web: python src/manage.py migrate && python src/manage.py runserver $PORT
+web: uwsgi --ini compose/app/uwsgi.ini

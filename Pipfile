@@ -17,6 +17,7 @@ django-cors-headers = "*"
 drf-yasg = "*"
 pydantic = "*"
 django-rest-auth = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.8"

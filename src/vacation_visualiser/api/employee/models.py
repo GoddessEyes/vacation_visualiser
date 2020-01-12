@@ -50,6 +50,9 @@ class Employee(AbstractUser):
         null=True,
     )
 
+    def __str__(self) -> str:
+        return f'{self.middle_name} {self.first_name} {self.last_name}'
+
     class Meta:
         verbose_name = 'Сотрудник'
         verbose_name_plural = 'Сотрудники'

@@ -28,7 +28,7 @@ class VacationInline(admin.StackedInline):
 
 
 class EmployeeChangeForm(UserChangeForm):
-    """Переопределённая форма изменения `Employee`."""
+    """Переопределённая форма изменения `Сотрудника`."""
 
     class Meta:
         model = Employee
@@ -41,7 +41,7 @@ class EmployeeChangeForm(UserChangeForm):
 
 
 class EmployeeCreationForm(UserCreationForm):
-    """Переопределённая форма добавления `Employee`."""
+    """Переопределённая форма добавления `Сотрудника`."""
 
     class Meta:
         model = Employee
@@ -52,9 +52,9 @@ class EmployeeCreationForm(UserCreationForm):
 
 @admin.register(Employee)
 class EmployeeAdmin(UserAdmin):
-    """Админ-класс отображения модели `Employee`."""
+    """Админ-класс отображения модели `Сотрудника`."""
 
-    inlines = (TokenInline, VacationInline, )
+    inlines = (TokenInline, VacationInline)
     add_form = EmployeeCreationForm
     form = EmployeeChangeForm
 

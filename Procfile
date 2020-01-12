@@ -1,1 +1,1 @@
-web: python src/manage.py migrate && python src/manage.py runserver 5000
+web: python src/manage.py migrate && python src/manage.py runserver $PORT

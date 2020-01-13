@@ -8,8 +8,8 @@ from vacation_visualiser.api.vacation.models import Vacation
 class VacationSerializer(serializers.ModelSerializer):
     """Serializer модели `Vacation`."""
 
-    employee = EmployeeSerializer()
+    employee: EmployeeSerializer = EmployeeSerializer()
 
     class Meta:
-        model = Vacation
-        fields = ('employee', 'date_start', 'date_end')
+        model: Vacation = Vacation
+        fields: tuple = ('employee', 'date_start', 'date_end')

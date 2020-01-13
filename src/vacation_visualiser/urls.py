@@ -3,12 +3,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-
+from typing import List
 
 admin.site.site_header = 'Администрирование Отпускатора'
 admin.site.site_title = 'Отпускатор'
 
-urlpatterns = [
+urlpatterns: List = [
     path('admin/', admin.site.urls),
     path('api/', include('vacation_visualiser.api.urls')),
 ]

@@ -11,7 +11,7 @@ pylint.txt
 
 .idea/
 .vscode/
-
+.mypy_cache
 .cache/
 .pytest_cache
 __pycache__/

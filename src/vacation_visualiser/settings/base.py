@@ -17,6 +17,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ('*',)
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -24,15 +26,14 @@ DJANGO_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
 )
 
-CORS_ORIGIN_ALLOW_ALL = True
 
 THIRD_PARTY_APPS = (
     'drf_yasg',
     'rest_framework.authtoken',
     'rest_auth',
+    'corsheaders',
 )
 
 LOCAL_APPS = (
@@ -93,6 +94,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_FILTER_BACKENDS': (
+        ('django_filters.rest_framework.DjangoFilterBackend', )
+    )
 }
 
 REST_AUTH_SERIALIZERS = {

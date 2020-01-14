@@ -8,8 +8,9 @@ from typing import List, Tuple
 
 
 class VacationView(ReadOnlyModelViewSet):
-    """View графика `Отпусков`."""
+    """View API графика `Отпусков`."""
 
-    serializer_class: VacationSerializer = VacationSerializer
-    queryset: List[Vacation] = Vacation.objects.all()
-    permission_classes: Tuple = (IsAuthenticated, )
+    serializer_class: 'VacationSerializer' = VacationSerializer
+    queryset: 'List[Vacation]' = Vacation.objects.all()
+    permission_classes: 'Tuple[object, ...]' = (IsAuthenticated, )
+

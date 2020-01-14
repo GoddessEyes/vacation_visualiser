@@ -2,13 +2,13 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, URLPattern
 from typing import List
 
-admin.site.site_header = 'Администрирование Отпускатора'
-admin.site.site_title = 'Отпускатор'
+admin.site.site_header = 'Администрирование Vacation Visualiser'
+admin.site.site_title = 'Vacation Visualiser'
 
-urlpatterns: List = [
+urlpatterns: List[URLPattern] = [
     path('admin/', admin.site.urls),
     path('api/', include('vacation_visualiser.api.urls')),
 ]

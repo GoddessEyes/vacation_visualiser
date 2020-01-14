@@ -1,20 +1,21 @@
 """Модели описывающие график отпусков."""
 
 from django.db import models
+from vacation_visualiser.api.employee.models import Employee
 
 
 class Vacation(models.Model):
     """Модель `Отпуск` - в совокупности описывает график отпусков."""
 
-    date_start = models.DateField(
+    date_start: 'models.DateField[str, str]' = models.DateField(
         verbose_name='Дата начала отпуска',
     )
-    date_end = models.DateField(
+    date_end: 'models.DateField[str, str]' = models.DateField(
         verbose_name='Дата окончания отпуска',
     )
-    employee = models.ForeignKey(
+    employee: 'Employee' = models.ForeignKey(
         verbose_name='Сотрудник',
-        to='employee.Employee',
+        to=Employee,
         on_delete=models.CASCADE,
     )
 
@@ -25,5 +26,5 @@ class Vacation(models.Model):
         )
 
     class Meta:
-        verbose_name = 'Отпуск'
-        verbose_name_plural = 'Отпуска'
+        verbose_name: str = 'Отпуск'
+        verbose_name_plural: str = 'Отпуска'

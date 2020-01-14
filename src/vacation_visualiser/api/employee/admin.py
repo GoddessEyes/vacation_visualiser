@@ -1,29 +1,33 @@
 """Модуль настроек админ-панели `Employee`."""
+from typing import Tuple, Dict
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from rest_framework.authtoken.models import Token
-from vacation_visualiser.api.employee.models import Employee, Position
+from vacation_visualiser.api.employee.models import (
+    Employee, Position, Department
+)
 from vacation_visualiser.api.vacation.models import Vacation
 
 
 admin.site.register(Position)
+admin.site.register(Department)
 
 
 class TokenInline(admin.StackedInline):
     """Админ-элемент `Employee -> Token's`."""
 
-    model = Token
-    readonly_fields = ('created',)
-    can_delete = False
-    classes = ('collapse',)
+    model: Token = Token
+    readonly_fields: Tuple[str, ...] = ('created', )
+    can_delete: bool = False
+    classes: Tuple[str, ...] = ('collapse',)
 
 
 class VacationInline(admin.StackedInline):
     """Админ-элемент `Employee -> Vacation's`."""
 
-    model = Vacation
+    model: Vacation = Vacation
     extra = 1
 
 
@@ -46,7 +50,7 @@ class EmployeeCreationForm(UserCreationForm):
     class Meta:
         model = Employee
         fields = (
-            'username', 'middle_name', 'first_name', 'last_name', 'password',
+            'username', 'last_name', 'first_name', 'middle_name', 'password',
         )
 
 
@@ -58,23 +62,25 @@ class EmployeeAdmin(UserAdmin):
     add_form = EmployeeCreationForm
     form = EmployeeChangeForm
 
-    list_display = ('username', 'middle_name', 'first_name', 'position')
+    list_display: Tuple[str, ...] = (
+        'last_name', 'first_name', 'middle_name', 'position'
+    )
 
-    prepopulated_fields = {
+    prepopulated_fields: Dict[str, Tuple[str, ...]] = {
         'username': (
-            'middle_name', 'first_name',
+            'last_name', 'first_name',
         ),
     }
 
-    add_fieldsets = (
+    add_fieldsets: Tuple[Tuple[(None, Dict[str, Tuple[str, ...]])]] = (
         (
             None,
             {
                 'classes': ('wide',),
                 'fields': (
-                    'middle_name',
-                    'first_name',
                     'last_name',
+                    'first_name',
+                    'middle_name',
                     'username',
                     'password1',
                     'password2',
@@ -83,15 +89,15 @@ class EmployeeAdmin(UserAdmin):
             },
         ),
     )
-    fieldsets = (
+    fieldsets: Tuple[Tuple[(None, Dict[str, Tuple[str, ...]])]] = (
         (
             None,
             {
                 'classes': ('wide',),
                 'fields': (
-                    'middle_name',
-                    'first_name',
                     'last_name',
+                    'first_name',
+                    'middle_name',
                     'username',
                     'position',
                 ),

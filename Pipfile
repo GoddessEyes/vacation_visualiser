@@ -18,6 +18,9 @@ drf-yasg = "*"
 pydantic = "*"
 django-rest-auth = "*"
 dj-database-url = "*"
+mypy = "*"
+django-stubs = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.8"

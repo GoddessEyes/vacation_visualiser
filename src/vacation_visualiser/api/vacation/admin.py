@@ -1,4 +1,5 @@
 """Модуль настроек админ-панели `Vacation`."""
+from typing import Tuple
 
 from django.contrib import admin
 from vacation_visualiser.api.vacation.models import Vacation
@@ -8,4 +9,4 @@ from vacation_visualiser.api.vacation.models import Vacation
 class VacationAdmin(admin.ModelAdmin):
     """Админ-класс отображения модели `Отпуска`."""
 
-    list_display = ('employee', 'date_start', 'date_end')
+    list_display: Tuple[str, str, str] = ('employee', 'date_start', 'date_end')

@@ -1,9 +1,11 @@
 """Основные роуты приложения."""
+from typing import List
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path, URLPattern
-from typing import List
+from django.urls import URLPattern, include, path
+
 
 admin.site.site_header = 'Администрирование Vacation Visualiser'
 admin.site.site_title = 'Vacation Visualiser'

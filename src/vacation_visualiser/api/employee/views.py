@@ -37,9 +37,8 @@ class PositionView(ReadOnlyModelViewSet):
     queryset: 'List[Position]' = Position.objects.all()
     permission_classes: 'Tuple[object, ...]' = (IsAuthenticated, )
     serializer_class = PositionSerializer
-    filter_backends: Tuple[object, ...] = (DjangoFilterBackend, SearchFilter,)
+    filter_backends: Tuple[object, ...] = (DjangoFilterBackend, )
     filterset_fields = ('name', 'department', )
-    search_fields = ('name', )
 
 
 class DepartmentView(ReadOnlyModelViewSet):

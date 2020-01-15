@@ -24,6 +24,8 @@ persistent=no
 
 # List of plugins (as comma separated values of python modules names) to load,
 # usually to register additional checkers.
+load-plugins=pylint_django
+
 
 [MESSAGES CONTROL]
 
@@ -70,7 +72,7 @@ disable=
     no-name-in-module,
     import-outside-toplevel,
     logging-format-interpolation,
-    abstract-method
+    no-self-use,
 
 [REPORTS]
 

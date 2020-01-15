@@ -1,3 +1,6 @@
+[![Actions Status](https://github.com/GoddessEyes/vacation_visualiser/workflows/vacation_visualiser%20build/badge.svg)](https://github.com/GoddessEyes/vacation_visualiser/actions)
+
+
 # Vacation_Visualizer
 
 #### Запуск "production" сборки

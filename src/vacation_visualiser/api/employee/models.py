@@ -1,11 +1,12 @@
 """Модели связанные с сущностью `Сотрудник`."""
-from typing import Callable, List, Dict
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
 class Department(models.Model):
+    """`Отдел` должности."""
+
     name: 'models.CharField[str, str]' = models.CharField(
         'Отдел',
         max_length=50,
@@ -31,7 +32,7 @@ class Position(models.Model):
         verbose_name='Отдел',
         on_delete=models.DO_NOTHING,
         blank=True,
-        null=True
+        null=True,
     )
 
     def __str__(self) -> str:

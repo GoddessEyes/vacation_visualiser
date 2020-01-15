@@ -1,12 +1,15 @@
 """Модуль настроек админ-панели `Employee`."""
-from typing import Tuple, Dict, Type
+from typing import Dict, Sequence, Tuple, Type
 
 from django.contrib import admin
+from django.contrib.admin.options import InlineModelAdmin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from rest_framework.authtoken.models import Token
 from vacation_visualiser.api.employee.models import (
-    Employee, Position, Department
+    Department,
+    Employee,
+    Position,
 )
 from vacation_visualiser.api.vacation.models import Vacation
 
@@ -58,7 +61,10 @@ class EmployeeCreationForm(UserCreationForm):
 class EmployeeAdmin(UserAdmin):
     """Админ-класс отображения модели `Сотрудника`."""
 
-    inlines: 'Tuple[admin.ModelAdmin, ...]' = (TokenInline, VacationInline)
+    inlines: Sequence[Type[InlineModelAdmin]] = (
+        TokenInline,
+        VacationInline,
+    )
     add_form: Type[EmployeeCreationForm] = EmployeeCreationForm
     form: Type[EmployeeChangeForm] = EmployeeChangeForm
 

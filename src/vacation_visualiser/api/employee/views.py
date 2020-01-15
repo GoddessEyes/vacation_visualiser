@@ -22,7 +22,7 @@ from vacation_visualiser.api.employee.serializers import (
 class EmployeeView(ReadOnlyModelViewSet):
     """View API `Сотрудники`."""
 
-    queryset: List[Employee] = Employee.objects.all()
+    queryset: List[Employee] = Employee.objects.all().order_by('last_name')
     permission_classes: Tuple[object, ...] = (IsAuthenticated, )
     filter_backends: Tuple[object, ...] = (DjangoFilterBackend, SearchFilter)
     filterset_fields: Tuple[str, ...] = ('position', )

@@ -18,6 +18,15 @@ jobs:
     - name: Install dependencies
       run: |
         pipenv install
-    - name: Lint with flake8
+    - name: flake8
       run: |
-        make lint
+        flake8 --config=.flake8
+    - name: pylint
+      run: |
+        pylint src
+    - name: isort
+      run: |
+        isort --check
+    - name: mypy
+      run: |
+        mypy src/

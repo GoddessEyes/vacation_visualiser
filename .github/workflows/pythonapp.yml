@@ -1,4 +1,4 @@
-name: Python application
+name: vacation_visualiser build
 
 on: [push]
 

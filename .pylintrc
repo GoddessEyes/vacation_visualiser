@@ -71,6 +71,7 @@ disable=
     import-outside-toplevel,
     logging-format-interpolation,
     no-self-use,
+    abstract-method,
 
 [REPORTS]
 

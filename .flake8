@@ -5,4 +5,10 @@ max-line-length = 100
 # E12x continuation line indentation
 # E251 no spaces around keyword / parameter equals
 # E303 too many blank lines (3)
-ignore = E12,E251,E303,C101,WPS226,WPS400,WPS306,D106,WPS432,WPS305,D105,WPS221,WPS326
+ignore =
+    E12,E251,E303,
+    C101,
+    WPS226,WPS400,WPS306,WPS221,WPS326,WPS432,WPS305,WPS441,WPS440,WPS335,WPS110,WPS229,WPS210,WPS338,
+    D106,D105,
+    DAR101,DAR201,DAR401,
+    TAE002,

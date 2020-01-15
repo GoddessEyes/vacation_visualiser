@@ -71,6 +71,8 @@ disable=
     line-too-long,
     no-name-in-module,
     import-outside-toplevel,
+    logging-format-interpolation,
+    abstract-method
 
 [REPORTS]
 

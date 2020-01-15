@@ -2,8 +2,11 @@
 
 from rest_framework.routers import DefaultRouter
 from vacation_visualiser.api.employee.views import (
-    EmployeeView, PositionView, DepartmentView
+    DepartmentView,
+    EmployeeView,
+    PositionView,
 )
+
 
 router = DefaultRouter()
 

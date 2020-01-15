@@ -31,7 +31,6 @@ class EmployeeView(ReadOnlyModelViewSet):
         'middle_name',
         'last_name',
         'position__name',
-        'department',
     )
 
     def get_serializer_class(self):

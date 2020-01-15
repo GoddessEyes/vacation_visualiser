@@ -25,9 +25,9 @@ class EmployeeView(ReadOnlyModelViewSet):
     queryset: List[Employee] = Employee.objects.all().order_by('last_name')
     permission_classes: Tuple[object, ...] = (IsAuthenticated, )
     filter_backends: Tuple[object, ...] = (DjangoFilterBackend, SearchFilter)
-    filterset_fields: Tuple[str, ...] = ('position', )
+    filterset_fields: Tuple[str, ...] = ('position', 'position__department')
     search_fields: Tuple[str, ...] = (
-        'first_name', 'middle_name', 'last_name', 'position__name',
+        'first_name', 'middle_name', 'last_name', 'position__name', 'department'
     )
 
     def get_serializer_class(self):

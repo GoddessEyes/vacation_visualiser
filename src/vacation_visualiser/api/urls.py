@@ -5,8 +5,8 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from vacation_visualiser.api.employee.auth_urls import urlpatterns
-from vacation_visualiser.api.vacation.urls import router as vacation_router
 from vacation_visualiser.api.employee.urls import router as employee_router
+from vacation_visualiser.api.vacation.urls import router as vacation_router
 
 
 app_name = 'v1'

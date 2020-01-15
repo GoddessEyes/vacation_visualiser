@@ -1,5 +1,5 @@
 """Модуль настроек админ-панели `Employee`."""
-from typing import Tuple, Dict
+from typing import Tuple, Dict, Type
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
@@ -28,15 +28,15 @@ class VacationInline(admin.StackedInline):
     """Админ-элемент `Employee -> Vacation's`."""
 
     model: Vacation = Vacation
-    extra = 1
+    extra: int = 1
 
 
 class EmployeeChangeForm(UserChangeForm):
     """Переопределённая форма изменения `Сотрудника`."""
 
     class Meta:
-        model = Employee
-        fields = (
+        model: Employee = Employee
+        fields: Tuple[str, ...] = (
             'username',
             'middle_name',
             'first_name',
@@ -58,12 +58,15 @@ class EmployeeCreationForm(UserCreationForm):
 class EmployeeAdmin(UserAdmin):
     """Админ-класс отображения модели `Сотрудника`."""
 
-    inlines = (TokenInline, VacationInline)
-    add_form = EmployeeCreationForm
-    form = EmployeeChangeForm
+    inlines: 'Tuple[admin.ModelAdmin, ...]' = (TokenInline, VacationInline)
+    add_form: Type[EmployeeCreationForm] = EmployeeCreationForm
+    form: Type[EmployeeChangeForm] = EmployeeChangeForm
 
     list_display: Tuple[str, ...] = (
-        'last_name', 'first_name', 'middle_name', 'position'
+        'last_name', 'first_name', 'middle_name', 'position', 'username',
+    )
+    list_display_links: Tuple[str, ...] = (
+        'last_name', 'first_name', 'middle_name', 'position', 'username',
     )
 
     prepopulated_fields: Dict[str, Tuple[str, ...]] = {

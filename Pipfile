@@ -21,6 +21,8 @@ dj-database-url = "*"
 mypy = "*"
 django-stubs = "*"
 django-filter = "*"
+openpyxl = "*"
+transliterate = "*"
 
 [requires]
 python_version = "3.8"

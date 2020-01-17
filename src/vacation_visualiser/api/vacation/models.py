@@ -4,8 +4,8 @@ from django.db import models
 from vacation_visualiser.api.employee.models import Employee
 
 
-class Vacation(models.Model):
-    """Модель `Отпуск` - в совокупности описывает график отпусков."""
+class AbstractVacation(models.Model):
+    """Описывает базовую модель отпуска."""
 
     date_start: 'models.DateField[str, str]' = models.DateField(
         verbose_name='Дата начала отпуска',
@@ -18,6 +18,13 @@ class Vacation(models.Model):
         to=Employee,
         on_delete=models.CASCADE,
     )
+
+    class Meta:
+        abstract = True
+
+
+class Vacation(AbstractVacation):
+    """Модель `Отпуск` - в совокупности описывает график отпусков."""
 
     def __str__(self) -> str:
         return (

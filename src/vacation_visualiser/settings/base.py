@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'vacation_visualiser.api.employee',
     'vacation_visualiser.api.vacation',
+    'vacation_visualiser.api.vacation_history',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

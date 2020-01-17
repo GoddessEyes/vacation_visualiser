@@ -12,11 +12,14 @@ if DATABASE_URL:
     DATABASES['default'] = dj_database_url.config(
         default=DATABASE_URL
     )
+
 else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'vacation_visualiser.sqlite3'),
+            'NAME': os.path.join(
+                BASE_DIR,
+                'vacation_visualiser_fogstream.sqlite3',
+            ),
         },
     }
-DEBUG = True

@@ -1,4 +1,5 @@
 """Модуль настроек админ-панели `Vacation`."""
+
 from typing import Tuple
 
 from django.contrib import admin

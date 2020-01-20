@@ -40,5 +40,4 @@ jobs:
         mypy src/
     - name: tests
       run: |
-        pipenv shell
         make test

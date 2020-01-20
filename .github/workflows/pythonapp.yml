@@ -18,6 +18,14 @@ jobs:
     - name: Install dependencies
       run: |
         pipenv install --dev
+        
+    - name: tests
+      env:
+        DJANGO_SETTINGS_MODULE: vacation_visualiser.settings.dev
+      run: |
+        pipenv shell
+        pipenv install
+        python src/manage.py test
 
     - name: flake8
       run: |
@@ -38,6 +46,4 @@ jobs:
       run: |
         pip install mypy
         mypy src/
-    - name: tests
-      run: |
-        python src/manage.py test
+

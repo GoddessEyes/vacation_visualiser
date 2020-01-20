@@ -1,0 +1,23 @@
+- model: employee.employee
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$180000$80ZfZ1ODVyVF$111V00NScw4X1lgouem3ZSMrFLmdac7KKjZxsRNf+bE=
+    last_login: 2020-01-17 07:46:57.029212+00:00
+    is_superuser: true
+    username: test
+    email: test@test.com
+    is_staff: true
+    is_active: true
+    date_joined: 2020-01-16 14:57:14.419659+00:00
+    first_name: ''
+    last_name: ''
+    middle_name: ''
+    position: null
+    groups: []
+    user_permissions: []
+- model: vacation.vacation
+  pk: 1
+  fields:
+    date_start: 2020-01-20
+    date_end: 2021-04-01
+    employee: 1

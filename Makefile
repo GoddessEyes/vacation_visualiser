@@ -9,3 +9,6 @@ run:
 
 run-dev:
 	@python src/manage.py runserver
+
+test:
+	@python src/manage.py test

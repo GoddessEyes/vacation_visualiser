@@ -39,4 +39,4 @@ jobs:
         pip install mypy
         mypy src/
     - name: tests
-      run: pipenv install --dev && make test
+      run: pipenv install --dev && pipenv shell && make test

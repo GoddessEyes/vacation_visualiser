@@ -40,4 +40,4 @@ jobs:
         mypy src/
     - name: tests
       run: |
-        make test
+        python src/manage.py test

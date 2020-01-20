@@ -38,3 +38,5 @@ jobs:
       run: |
         pip install mypy
         mypy src/
+    - name: tests
+      run: pipenv install --dev && make test

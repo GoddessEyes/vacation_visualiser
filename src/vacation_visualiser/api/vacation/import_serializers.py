@@ -11,6 +11,7 @@ from vacation_visualiser.api.vacation_history.serializers import (
 
 class UserVacationsListSerializer(serializers.ModelSerializer):
     """Serializer для последовательности `Отпуска Юзера`."""
+
     history_vacations = VacationHistorySerializer(many=True)
 
     class Meta:
@@ -19,5 +20,5 @@ class UserVacationsListSerializer(serializers.ModelSerializer):
             'id',
             'date_start',
             'date_end',
-            'history_vacations'
+            'history_vacations',
         )

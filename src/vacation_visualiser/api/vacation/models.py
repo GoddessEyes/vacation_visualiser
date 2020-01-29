@@ -19,6 +19,12 @@ class AbstractVacation(models.Model):
         on_delete=models.CASCADE,
     )
 
+    def __str__(self) -> str:
+        return (
+            f'{self.employee.middle_name} {self.employee.first_name} - '
+            f'Начало: {self.date_start} / Окончание: {self.date_end}'
+        )
+
     class Meta:
         abstract = True
 

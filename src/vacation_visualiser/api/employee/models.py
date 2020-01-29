@@ -73,6 +73,10 @@ class Employee(AbstractUser):
         blank=True,
         null=True,
     )
+    rest_of_vacation = models.PositiveSmallIntegerField(
+        verbose_name='Остаток отпуска',
+        default=35,
+    )
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.middle_name} {self.last_name}'

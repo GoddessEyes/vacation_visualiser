@@ -44,6 +44,7 @@ class EmployeeChangeForm(UserChangeForm):
             'middle_name',
             'first_name',
             'last_name',
+            'rest_of_vacation'
         )
 
 
@@ -69,7 +70,12 @@ class EmployeeAdmin(UserAdmin):
     form: Type[EmployeeChangeForm] = EmployeeChangeForm
 
     list_display: Tuple[str, ...] = (
-        'last_name', 'first_name', 'middle_name', 'position', 'username',
+        'last_name',
+        'first_name',
+        'middle_name',
+        'position',
+        'username',
+        'rest_of_vacation'
     )
     list_display_links: Tuple[str, ...] = (
         'last_name', 'first_name', 'middle_name', 'position', 'username',
@@ -94,6 +100,7 @@ class EmployeeAdmin(UserAdmin):
                     'password1',
                     'password2',
                     'position',
+                    'rest_of_vacation'
                 ),
             },
         ),

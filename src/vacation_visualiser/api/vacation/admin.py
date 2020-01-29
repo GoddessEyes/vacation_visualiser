@@ -10,4 +10,8 @@ from vacation_visualiser.api.vacation.models import Vacation
 class VacationAdmin(admin.ModelAdmin):
     """Админ-класс отображения модели `Отпуска`."""
 
-    list_display: Tuple[str, str, str] = ('employee', 'date_start', 'date_end')
+    list_display: Tuple[str, ...] = (
+        'employee',
+        'date_start',
+        'date_end',
+    )

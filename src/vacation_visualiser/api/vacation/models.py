@@ -19,6 +19,13 @@ class AbstractVacation(models.Model):
         on_delete=models.CASCADE,
     )
 
+    class Meta:
+        abstract = True
+
+
+class Vacation(AbstractVacation):
+    """Модель `Отпуск` - в совокупности описывает график отпусков."""
+
     def __str__(self) -> str:
         return (
             f'{self.employee.middle_name} {self.employee.first_name} - '

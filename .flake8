@@ -12,3 +12,16 @@ ignore =
     D106,D105,
     DAR101,DAR201,DAR401,
     TAE002,
+
+per-file-ignores =
+    tests*.py:
+        # D101 Missing docstring in public class
+        D100,
+        # D101 Missing docstring in public class
+        D101,
+        # D102 Missing docstring in public method
+        D102,
+        # WPS213 Found too many expressions
+        WPS213,
+        # WPS230 Found too many public instance attributes
+        WPS230

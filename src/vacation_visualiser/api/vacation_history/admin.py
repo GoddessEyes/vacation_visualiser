@@ -6,4 +6,4 @@ from vacation_visualiser.api.vacation_history.models import VacationHistory
 
 @admin.register(VacationHistory)
 class VacationHistoryAdmin(admin.ModelAdmin):
-    """Админ-класс отображения модели `Отпуска`."""
+    """Класс конфигурации Истории отпусков для админ панели."""
